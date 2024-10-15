@@ -15,6 +15,25 @@ The assistant leverages OpenAI's **Retrieval-Augmented Generation (RAG)** and in
 - **JSON-based Database**: Simulate orders, product inventories, and shipping statuses with a simple JSON database.
 - **Dummy Functions**: This version connects to dummy functions, designed for simulation and testing. You are encouraged to modify and extend these functions to connect them to your actual services or documentation. This flexibility allows you to integrate real-world systems like order management, inventory checks, and shipping status updates.
 
+## 💬 What is the OpenAI Realtime API?
+
+The **Realtime API** enables you to build low-latency, multi-modal conversational experiences. It supports both text and audio as input and output, while also enabling tool calling, making it versatile for real-time, interactive applications.
+
+### Key Benefits of the Realtime API
+
+- **Native speech-to-speech**: The API operates without text as an intermediary, reducing latency and delivering more nuanced, natural output.
+- **Natural, steerable voices**: The models can produce natural inflections, including features like laughing and whispering, while adhering to specific tonal directions.
+- **Simultaneous multimodal output**: While text can be useful for moderation or logging, the audio is faster-than-realtime, ensuring stable playback.
+  
+This API is **websocket-based**, marking the first time OpenAI has published an API capable of sending and receiving audio in real time. It's designed to provide developers with a seamless way to build conversational applications that require instant responses.
+
+### Important Considerations
+
+- **Beta Stage**: The Realtime API is currently in beta and does not offer client-side authentication. For security, audio must be relayed to a server to authenticate securely.
+- **Network Sensitivity**: Real-time audio experiences can be affected by network conditions, especially when delivering audio reliably to a server. This makes production-scale use challenging in client-side or telephony applications where network conditions may vary.
+  
+For production use, especially in environments where network reliability is unpredictable, it is recommended to evaluate purpose-built third-party solutions or integrate with trusted partners, as listed by OpenAI.
+
 ## 🛠️ Project Structure
 
 - **`dummy_db/`**: Contains JSON files simulating a database of orders, products, and shipping statuses.
@@ -30,8 +49,8 @@ The assistant leverages OpenAI's **Retrieval-Augmented Generation (RAG)** and in
 
 Before you begin, ensure you have the following:
 
-1. A **Twilio account** (Sign up [here](https://www.twilio.com/try-twilio)).
-2. An **OpenAI API key** (Get it [here](https://beta.openai.com/signup/)).
+1. A **Twilio account** (Sign up [here](https://www.twilio.com/login)).
+2. An **OpenAI API key** (Get it [here](https://platform.openai.com/)).
 3. Python 3.x installed on your machine.
 4. Set up a virtual environment for the project.
 
@@ -83,7 +102,7 @@ PORT=5000
 1. Clone this repository:
 
    ```bash
-   git clone https://github.com/yourusername/repo-name.git
+   git clone https://github.com/ericrisco/twilio-realtime-openai-rag
    cd repo-name
    ```
 
