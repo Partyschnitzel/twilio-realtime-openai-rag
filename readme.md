@@ -6,6 +6,8 @@ This repository showcases how to easily create a **real-time voice assistant** u
 
 The assistant leverages OpenAI's **Retrieval-Augmented Generation (RAG)** and integrates with **Twilio** for seamless voice communication.
 
+![Real-time OpenAI Architecture](images/realtime_openai.png)
+
 ## ✨ Features
 
 - **Real-time Voice Interaction**: Talk to your assistant and get instant, AI-generated responses.
@@ -68,6 +70,8 @@ Before you begin, ensure you have the following:
    - Scroll down to the **Voice & Fax** section.
    - In the **A Call Comes In** field, set the Webhook URL to the endpoint that connects to your service. For example: https://your-domain.com/stream/incoming-call
    - This URL should point to your FastAPI application, specifically the `/stream/incoming-call` route that will handle the incoming Twilio calls.
+
+    ![Real-time OpenAI Architecture](images/webhook_config.png)
 
 3. **Set up the WEBSOCKET_URL**:
    - In your `.env` file, you need to define the `WEBSOCKET_URL`. This is the URL where Twilio will establish a WebSocket connection to stream the voice call to your service.
