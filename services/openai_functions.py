@@ -13,7 +13,7 @@ async def welcome_message(openai_ws):
             "content": [
                 {
                     "type": "input_text",
-                    "text": "Hello!"
+                    "text": "Hallo!"
                 }
             ]
         }
@@ -53,11 +53,11 @@ async def generate_audio_response(stream_sid, openai_ws, response_text):
     await openai_ws.send_json(response_message)
     
     instructions = f"""
-    Respond to the user's question based on this information:
+    Antworte dem Benutzer auf Basis folgender Informationen:
     === 
     {response_text}. 
     ===
-    Be concise and friendly.
+    Sei freundlich und benimm dich wie ein Butler.
     """
     logging.info(f"Generate audio response {stream_sid}: {instructions}")
 
@@ -69,5 +69,3 @@ async def generate_audio_response(stream_sid, openai_ws, response_text):
         }
     }
     await openai_ws.send_json(response_create)
-
-
